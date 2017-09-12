@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 文档兼容模式的定义 -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>环境搭建和HelloWorld程序</title>
+</head>
+<body>
+<div id="reactContainer"></div>
+<script src="./common/react.js"></script>
+<script src="./common/react-dom.js"></script>
+<script>
+    // 注册一个组件类HelloComponent,这个组件类只包含一个render函数(必须实现)
+    var HelloComponent = React.createClass({
+        render: function () {
+            // 没有使用JSX语法 相当于 <h1>Hello World!</h1>
+            return React.createElement('h1', null, 'Hello World!');
+        }
+    });
+
+    // ReactDOM.render是React的最基本方法，用于将模板转为HTML语言，并插入指定的DOM节点。
+    ReactDOM.render(
+        React.createElement(HelloComponent, null),
+        document.getElementById('reactContainer')
+    );
+</script>
+</body>
+</html>
