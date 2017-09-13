@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 文档兼容模式的定义 -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>初识JSX语法</title>
+    <script src="./common/react.js"></script>
+    <script src="./common/react-dom.js"></script>
+    <script src="./common/browser.min.js"></script>
+</head>
+<body>
+<div id="reactContainer"></div>
+<script type="text/babel">
+    // 注册一个组件类HelloComponent,这个组件类只包含一个render函数(必须实现)
+    var HelloComponent = React.createClass({
+        render: function () {
+            // 方法一
+            // 没有使用JSX语法 相当于 <h1>Hello World!</h1>
+            // return React.createElement('h1', null, 'Hello World!');
+
+            // 方法二
+            // 使用JSX语法，使用括号可以多行写（格式化代码）
+            /*return (
+             <h1>Hello World!</h1>
+             );*/
+
+            // 方法三
+            // 在JSX中使用表达式
+            /*return (
+             <h1>Hello World!</h1>
+             );*/
+            return <h1>Hello {this.props.name ? this.props.name : 'World!'}</h1>
+        }
+    });
+
+    // ReactDOM.render是React的最基本方法，用于将模板转为HTML语言，并插入指定的DOM节点。
+    ReactDOM.render(<HelloComponent name="JSPang"/>, document.getElementById('reactContainer'));
+</script>
+</body>
+</html>

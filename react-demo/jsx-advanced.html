@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 文档兼容模式的定义 -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>进阶JSX语法</title>
+    <script src="./common/react.js"></script>
+    <script src="./common/react-dom.js"></script>
+    <script src="./common/browser.min.js"></script>
+</head>
+<body>
+<div id="reactContainer"></div>
+<script type="text/babel">
+    let names = ['JSPang', '技术胖', 'React'];
+
+    // 方法一
+    // 注册一个组件类HelloComponent,这个组件类只包含一个render函数(必须实现)
+    var HelloComponent = React.createClass({
+        render: function () {
+            return <div>
+                {
+                    names.map(function (name) {
+                        // 新版本的React需要使用key，如果没有key虽然会出来效果，
+                        // 但是控制台会报错。key的作用是生成虚拟
+                        // DOM时，需要使用key来进行标记,DOM更新时进行比较。
+                        return <div key={name}>Hello, {name}!</div>
+                    })
+                }
+            </div>
+        }
+    });
+
+    /*// ReactDOM.render是React的最基本方法，用于将模板转为HTML语言，并插入指定的DOM节点。
+     ReactDOM.render(<HelloComponent/>, document.getElementById('reactContainer'));*/
+
+    // 方法二
+    let arr = [
+        <h1 key="1">Hello World!</h1>,
+        <h1 key="2">React is awesome!</h1>
+    ];
+
+    ReactDOM.render(<div>{arr}</div>, document.getElementById('reactContainer'));
+</script>
+</body>
+</html>
