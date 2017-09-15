@@ -4,7 +4,7 @@
 
 [TOC]
 
-## 1.React简介 
+## 1.React简介 {#index}
 
 - **ReactJS官方地址**：[https://facebook.github.io/react/](https://facebook.github.io/react/)
 - **GitHub地址**：[https://github.com/facebook/reac](https://github.com/facebook/react)
