@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 文档兼容模式的定义 -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>React组件：this.props.children</title>
+    <script src="./common/react.js"></script>
+    <script src="./common/react-dom.js"></script>
+    <script src="./common/browser.min.js"></script>
+</head>
+<body>
+<div id="reactContainer"></div>
+<script type="text/babel">
+    var NodesList = React.createClass({
+        render: function () {
+            return (
+                    <ol>
+                        {
+                            React.Children.map(this.props.children, function (child) {
+                                return (<li>{child}</li>);
+                            })
+                        }
+                    </ol>
+            )
+        }
+    });
+
+
+    // this.props.children的值有三种可能：
+    // 1. 如果当前组件没有子节点，他就是undfined；
+    // 2. 如果有一个子节点，数据类型是object；
+    // 3. 如果有多个子节点，数据类型就是array。
+    ReactDOM.render(<NodesList>
+        <span>hello</span>
+        <span>world</span>
+    </NodesList>, document.getElementById('reactContainer'));
+</script>
+</body>
+</html>

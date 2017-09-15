@@ -53,10 +53,78 @@ React组件可以把它看作带有props属性集合和state状态集合并且�
 
 ### 5.2 props和render成员
 
+- props实例
+
+props是组件固有属性的集合，其数据由外部传入，一般在整个组件的生命周期中都是只读的。属性的初识值通常由React.createElement函数或者JSX中标签的属性值进行传递，并合并到组件实例对象的this.props中。
+
+[ *注： 通常固定的组件内只读的、应由父组件传递进来的属性适合放在props集合中，如组件的类名、颜色、字体、事件响应回调函数等。*]
+
+- props与state的区别
+
+    - props不能被其所在的组件修改，从父组件传递进来的属性不会在组件内部更改；
+    - state只能在所在组件内部更改，或在外部调用setState函数对状态进行间接修改。
+
+- render成员函数
+
+render是一个函数，它对于组件来说，render成员函数是必需的。render函数的主要流程是检测this.props和this.state,再返回一个单一组件实例。
+
+render函数应该是纯粹的，也就是说，在render函数内不应该修改组件state，不读写DOM信息，也不与浏览器交互。如果需要交互，应该在生命周期中进行交互。
+
 ### 5.3 生命周期
+
+一个组件完整的生命周期包含实例化阶段、活动阶段、销毁阶段三个阶段。每个阶段又由相应的方法管理。
+
+过程中涉及三个主要的动作术语：
+
+- mounting:表示正在挂接虚拟DOM到真实DOM。
+- updating:表示正在被重新渲染。
+- unmounting:表示正在将虚拟DOM移除真实DOM。
+
+每个动作术语提供两个函数：
+
+- componentWillMount()
+- componentDidMount()
+- componentWillUpdate(object nextProps, object nextState)
+- componentDidUpdate(object prevProps, object prevState)
+- componentWillUnmount()
 
 ### 5.4 this.props.children
 
+this.props对象的属性与组件的属性一一对应，但有一个例外，就是this.props.children属性。它表示组件的所有子节点。
+
+需要注意this.props.children的值有三种可能
+
+- 如果当前组件没有子节点，他就是undfined；
+- 如果有一个子节点，数据类型是object；
+- 如果有多个子节点，数据类型就是array。所以处理this.proprs.children的时候要小心。
+
 ### 5.5 props属性验证
 
+React.PropTypes提供各种验证器（validator）来验证传入数据的有效性。当向props传入无效数据时，React会在JavaScript控制台抛出警告。
+
+使用getDefaultProps方法可以用来设置组件属性的默认值。
+
 ### 5.6 获取真实DOM节点
+
+React中的DOM也是虚拟DOM（virtual DOM），这点跟我们以前讲的Vue非常类似。只有当它插入文档以后，才会变成真实的DOM。React也是在虚拟DOM发生变化时，进行比对后，只渲染变化的部分，它是React极高性能的主要原因之一。
+
+[ 注意：*由于this.refs.[refName]属性获取的是真实DOM，所以必须得到虚拟DOM插入文档以后，才能使用这个属性，否则会报错。*]
+
+## License
+
+```
+ Copyright (c) 2017, The Jeterlee authors 
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+```
+

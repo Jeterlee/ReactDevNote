@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 文档兼容模式的定义 -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>React组件：props和render成员</title>
+    <script src="./common/react.js"></script>
+    <script src="./common/react-dom.js"></script>
+    <script src="./common/browser.min.js"></script>
+</head>
+<body>
+<div id="reactContainer"></div>
+<script type="text/babel">
+    let HelloBox = React.createClass({
+        render: function () {
+            return <div>{'Hello' + this.props.myattr}</div>;
+        }
+    });
+
+    ReactDOM.render(<HelloBox myattr="World!"/>, document.getElementById('reactContainer'));
+</script>
+</body>
+</html>

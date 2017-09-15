@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 文档兼容模式的定义 -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>React组件：props属性验证</title>
+    <script src="./common/react.js"></script>
+    <script src="./common/react-dom.js"></script>
+    <script src="./common/browser.min.js"></script>
+</head>
+<body>
+<div id="reactContainer"></div>
+<script type="text/babel">
+    /*var MyTitle = React.createClass({
+     propTypes: {
+     title: React.PropTypes.string.isRequired
+     },
+
+     render: function () {
+     return <h2>{this.props.title}</h2>
+     }
+     });
+
+     var data = 123;
+     //    var data = "123";
+
+     ReactDOM.render(<MyTitle title={data}/>, document.getElementById('reactContainer'));*/
+
+    let MyTitle = React.createClass({
+        getDefaultProps: function () {
+            return {
+                title: 'Hello JSPang'
+            }
+        },
+
+        render: function () {
+            return <h2>{this.props.title}</h2>
+        }
+    });
+
+    ReactDOM.render(<MyTitle/>, document.getElementById('reactContainer'));
+</script>
+</body>
+</html>

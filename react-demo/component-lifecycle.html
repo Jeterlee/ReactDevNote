@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 文档兼容模式的定义 -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>React组件：生命周期</title>
+    <script src="./common/react.js"></script>
+    <script src="./common/react-dom.js"></script>
+    <script src="./common/browser.min.js"></script>
+</head>
+<body>
+<div id="reactContainer"></div>
+<script type="text/babel">
+    let AddCount = React.createClass({
+        // 初始化
+        getInitialState: function () {
+            console.log('1...getInitialState');
+            return {count: 1}
+        },
+        //
+        componentWillMount: function () {
+            console.log('2...componentWillMount');
+        }
+        ,
+        componentDidMount: function () {
+            console.log('3...componentDidMount');
+        },
+        //
+        componentWillUpdate: function () {
+            console.log('4...componentWillUpdate');
+        },
+        componentDidUpdate: function () {
+            console.log('5...componentDidUpdate');
+        },
+        handleClick: function (event) {
+            this.setState({count: this.state.count + 1});
+        },
+        render: function () {
+            return (
+                    <p>
+                        {this.state.count}<br/>
+                        <button onClick={this.handleClick}>Add</button>
+                    </p>
+            )
+        }
+    });
+
+    ReactDOM.render(<AddCount/>, document.getElementById('reactContainer'));
+</script>
+</body>
+</html>

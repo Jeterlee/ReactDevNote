@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 文档兼容模式的定义 -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>React组件：获取真实DOM节点</title>
+    <script src="./common/react.js"></script>
+    <script src="./common/react-dom.js"></script>
+    <script src="./common/browser.min.js"></script>
+</head>
+<body>
+<div id="reactContainer"></div>
+<script type="text/babel">
+    let MyComponent = React.createClass({
+        handleClick: function () {
+            this.refs.myTextInput.focus();
+        },
+
+        render: function () {
+            return (
+                    <div>
+                        <input type="text" ref="myTextInput"/>
+                        <input type="button" value="Focus the text input" onClick={this.handleClick}/>
+                    </div>
+            );
+        }
+    });
+
+    ReactDOM.render(<MyComponent/>, document.getElementById('reactContainer'));
+</script>
+</body>
+</html>
