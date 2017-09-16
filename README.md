@@ -2,9 +2,9 @@
 
 ![reactjslogo](https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1887081804,2705256642&fm=27&gp=0.jpg)
 
-[TOC]
+1. [React简介](http://github.com/Jeterlee/ReactDevNote#1. React简介)
 
-## 1. React简介{#index}
+## 1. React简介
 
 - **ReactJS官方地址**：[https://facebook.github.io/react/](https://facebook.github.io/react/)
 - **GitHub地址**：[https://github.com/facebook/reac](https://github.com/facebook/react)
