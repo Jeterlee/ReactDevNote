@@ -29,7 +29,9 @@
 - **GitHub地址**：[https://github.com/facebook/react](https://github.com/facebook/react)
 
     [**react.js**](https://github.com/Jeterlee/ReactDevNote/blob/master/react-demo/common/react.js)
+
     [**react-dom.js**](https://github.com/Jeterlee/ReactDevNote/blob/master/react-demo/common/react-dom.js)
+
     [**browser.min.js**](https://github.com/Jeterlee/ReactDevNote/blob/master/react-demo/common/react-dom.js)
 
 ---
@@ -79,7 +81,9 @@ JSX的优点：
 - 组件总是需要和用户互动的。
 
 ```
-React的一大创新，就是将界面组件看成一个状态机，用户界面拥有不同状态并根据状态进行渲染输出，用户界面和数据始终保持一致。开发者的主要工作就是定义state，并根据不同的state渲染对应的用户界面。
+React的一大创新，就是将界面组件看成一个状态机，用户界面拥有不同状态并根据状态
+进行渲染输出，用户界面和数据始终保持一致。开发者的主要工作就是定义state，并根
+据不同的state渲染对应的用户界面。
 ```
 
 - 通知React组件数据发生变化的方法是调用成员函数`setState(data,callback)`。这个函数会合并data到this.state,并重新渲染组件。渲染完成后，调用可选的callback回调。
@@ -98,9 +102,12 @@ React的一大创新，就是将界面组件看成一个状态机，用户界面
 - props实例
 
 ```
-props是组件固有属性的集合，其数据由外部传入，一般在整个组件的生命周期中都是只读的。属性的初识值通常由React.createElement函数或者JSX中标签的属性值进行传递，并合并到组件实例对象的this.props中。
+props是组件固有属性的集合，其数据由外部传入，一般在整个组件的生命周期中都是
+只读的。属性的初识值通常由React.createElement函数或者JSX中标签的属性值进行传
+递，并合并到组件实例对象的this.props中。
 
-注： 通常固定的组件内只读的、应由父组件传递进来的属性适合放在props集合中，如组件的类名、颜色、字体、事件响应回调函数等。
+注： 通常固定的组件内只读的、应由父组件传递进来的属性适合放在props集合中，
+如组件的类名、颜色、字体、事件响应回调函数等。
 ```
 
 - props与state的区别
@@ -113,9 +120,11 @@ state只能在所在组件内部更改，或在外部调用setState函数对状�
 - render成员函数
 
 ```
-render是一个函数，它对于组件来说，render成员函数是必需的。render函数的主要流程是检测this.props和this.state,再返回一个单一组件实例。
+render是一个函数，它对于组件来说，render成员函数是必需的。render函数的主要流
+程是检测this.props和this.state,再返回一个单一组件实例。
 
-render函数应该是纯粹的，也就是说，在render函数内不应该修改组件state，不读写DOM信息，也不与浏览器交互。如果需要交互，应该在生命周期中进行交互。
+render函数应该是纯粹的，也就是说，在render函数内不应该修改组件state，不读写
+DOM信息，也不与浏览器交互。如果需要交互，应该在生命周期中进行交互。
 ```
 
 
@@ -166,7 +175,8 @@ this.props对象的属性与组件的属性一一对应，但有一个例外，�
 React中的DOM也是`虚拟DOM（virtual DOM）`，这点跟我们以前讲的Vue非常类似。只有当它插入文档以后，才会变成真实的DOM。React也是在虚拟DOM发生变化时，进行比对后，只渲染变化的部分，它是React极高性能的主要原因之一。
 
 ```
- 注意：由于this.refs.[refName]属性获取的是真实DOM，所以必须得到虚拟DOM插入文档以后，才能使用这个属性，否则会报错。
+ 注意：由于this.refs.[refName]属性获取的是真实DOM，所以必须得到虚拟DOM插入
+文档以后，才能使用这个属性，否则会报错。
 ```
 
 ---
@@ -182,7 +192,8 @@ React中的DOM也是`虚拟DOM（virtual DOM）`，这点跟我们以前讲的Vu
 - 事件响应
 
 ```
-表单组件可以通过设置 onChange() 回调函数来监听组件变化。当用户的交互行文导致一下变化时，onChange() 被执行并通过浏览器做出响应。
+表单组件可以通过设置 onChange() 回调函数来监听组件变化。当用户的交互行文导致
+一下变化时，onChange() 被执行并通过浏览器做出响应。
 
 <input>或<textarea>的value发生变化。
 <input>的checked状态改变。
