@@ -4,6 +4,8 @@
 
 ![reactjslogo](https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1887081804,2705256642&fm=27&gp=0.jpg)
 
+### React学习教程：[React 教程（中文版）](http://www.runoob.com/react/react-tutorial.html)
+
 
 ## 目录结构
 - [1. React简介](#1.0.0)
