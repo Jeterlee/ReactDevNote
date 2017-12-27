@@ -1,10 +1,9 @@
 # ReactDevNote
-
-**项目说明：有关react.js的学习笔记。**
+**项目说明：有关React.js语法学习，React Native移动开发学习记录。**
 
 ![reactjslogo](https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1887081804,2705256642&fm=27&gp=0.jpg)
 
-### React学习教程：[React 教程（中文版）](http://www.runoob.com/react/react-tutorial.html)
+### React学习教程：[React 教程（中文版）](http://www.runoob.com/react/react-tutorial.html)，[React.js 小书](http://huziketang.com/books/react/)
 
 
 ## 目录结构
